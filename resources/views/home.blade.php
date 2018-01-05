@@ -1,23 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row mt-5">
-        <div class="col-md-8 offset-md-2">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
-            </div>
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
         </div>
+    @endif
+
+    <div>
+        <ul>
+            <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ route('inventory') }}">Inventory</a></li>
+            <li><a href="{{ route('order') }}">Order</a></li>
+            <li><a href="{{ route('sales') }}">Sales</a></li>
+            <li><a href="{{ route('customer') }}">Customer</a></li>
+            <li><a href="{{ route('expenses') }}">Expenses</a></li>
+        </ul>
     </div>
-</div>
 @endsection
