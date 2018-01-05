@@ -24,6 +24,6 @@ class HomeController extends Controller
     public function index()
     {
         session()->flash('status', trans('auth.success'));
-        return redirect('dashboard');
+        return view('home');
     }
 }
