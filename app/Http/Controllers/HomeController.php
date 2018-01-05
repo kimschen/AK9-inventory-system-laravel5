@@ -23,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        session()->flash('status', trans('auth.success'));
+        return redirect('dashboard');
     }
 }
