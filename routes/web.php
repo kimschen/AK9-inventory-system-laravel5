@@ -11,10 +11,26 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function() {
     return view('welcome');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Menu
+Route::namespace('Menu')->group(function() {
+
+	Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+	Route::get('/inventory', 'InventoryController@index')->name('inventory');
+	Route::get('/order', 'OrderController@index')->name('order');
+	Route::get('/sales', 'SalesController@index')->name('sales');
+	Route::get('/expenses', 'ExpensesController@index')->name('expenses');
+	Route::get('/customer', 'CustomerController@index')->name('customer');
+	Route::get('/purchase-order', 'PurchaseOrderController@index')->name('purchase-order');
+	Route::get('/setting', 'SettingController@index')->name('setting');
+	Route::get('/supplier', 'SupplierController@index')->name('supplier');
+	Route::get('/return', 'ReturnController@index')->name('return');
+
+});

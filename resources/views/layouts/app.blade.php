@@ -12,28 +12,41 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'AK9') }}
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
 
-            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                <ul class="navbar-nav">
-                    @if (Auth::guest())
-                        <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
-                        <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Register</a></li>
-                    @else
+    <!-- User View -->
+    @if (Auth::user())
+
+    <div class="row no-gutters">
+
+        <!-- Menu -->
+        <div class="col-xs">
+            <a class="nav-link [ bg-menu ]" href="{{ route('dashboard') }}">Dashboard</a>
+            <a class="nav-link [ bg-menu ]" href="{{ route('inventory') }}">Inventory</a>
+            <a class="nav-link [ bg-menu ]" href="{{ route('sales') }}">Sales</a>
+            <a class="nav-link [ bg-menu ]" href="{{ route('order') }}">Order</a>
+            <a class="nav-link [ bg-menu ]" href="{{ route('purchase-order') }}">Purchase Order</a>
+            <a class="nav-link [ bg-menu ]" href="{{ route('customer') }}">Customer</a>
+            <a class="nav-link [ bg-menu ]" href="{{ route('return') }}">Return</a>
+            <a class="nav-link [ bg-menu ]" href="{{ route('supplier') }}">Supplier</a>
+            <a class="nav-link [ bg-menu ]" href="{{ route('expenses') }}">Expenses</a>
+            <a class="nav-link [ bg-menu ]" href="{{ route('setting') }}">Setting</a>
+        </div>
+
+        <!-- Navigation Bar -->
+        <div class="col-sm">
+            <nav class="navbar navbar-expand-lg bg-dark [ bg-navbar ]">
+                <h3>{{ config('app.name', 'AK9') }}</h3>
+
+                <!-- Logout -->
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
                         <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">
+                            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{ Auth::user()->name }}
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
@@ -48,15 +61,50 @@
                                 </form>
                             </div>
                         </li>
-                    @endif
-                </ul>
-            </div>
+                    </ul>
+                </div>
+            </nav>
 
+            <!-- Flash Message -->
+            @if (session('status'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('status') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+
+            <!-- User Content -->
+            @yield('content')
         </div>
-    </nav>
 
-    @yield('content')
-</div>
+        <!-- Guest View -->
+        @else
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
+                        <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Register</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Guest Content -->
+        @yield('content')
+
+    </div><!-- END .row -->
+    @endif
+
+</div><!-- END #app -->
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
