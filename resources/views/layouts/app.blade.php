@@ -39,11 +39,11 @@
 
         <!-- Navigation Bar -->
         <div class="col-sm">
-            <nav class="navbar navbar-expand-lg bg-dark [ bg-navbar ]">
-                <h3>{{ config('app.name', 'AK9') }}</h3>
+            <nav class="navbar navbar-expand-lg bg-dark" style="color: white;">
+                <h4 class="mx-auto">AK9</h4>
 
                 <!-- Logout -->
-                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <div class="justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
