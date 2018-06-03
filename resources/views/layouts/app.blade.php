@@ -75,9 +75,10 @@
                 </div>
             @endif
 
-            <div class="container h5 text-uppercase">
-                {{ \Request::route()->getName() }}
+            <div class="container h5 text-uppercase [ route-name ]">
+                {{ Request::route()->getName() }}
             </div>
+            <hr>
 
             <!-- User Content -->
             @yield('content')
