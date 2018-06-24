@@ -1,4 +1,4 @@
-
+/* Menu background color */
 .bg-menu {
 	background-color: #0071BC;
 	color: white;
@@ -9,4 +9,15 @@
 
 .route-name {
 	margin-top: 20px;
+}
+
+/* Style the menu button */
+.btn-menu {
+    cursor: pointer;
+}
+
+/* Style the active class, and buttons on mouse-over */
+.active, .btn-menu:hover {
+    background-color: #666;
+    color: white;
 }
