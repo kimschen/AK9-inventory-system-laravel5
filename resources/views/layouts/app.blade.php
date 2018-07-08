@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+
+<!-- MASTER HTML -->
 <html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
@@ -24,17 +26,17 @@
     <div class="row no-gutters">
 
         <!-- Menu -->
-        <div class="col-xs">
-            <a class="nav-link [ bg-menu ]" href="{{ route('dashboard') }}">Dashboard</a>
-            <a class="nav-link [ bg-menu ]" href="{{ route('inventory') }}">Inventory</a>
-            <a class="nav-link [ bg-menu ]" href="{{ route('sales') }}">Sales</a>
-            <a class="nav-link [ bg-menu ]" href="{{ route('order') }}">Order</a>
-            <a class="nav-link [ bg-menu ]" href="{{ route('purchase-order') }}">Purchase Order</a>
-            <a class="nav-link [ bg-menu ]" href="{{ route('customer') }}">Customer</a>
-            <a class="nav-link [ bg-menu ]" href="{{ route('return') }}">Return</a>
-            <a class="nav-link [ bg-menu ]" href="{{ route('supplier') }}">Supplier</a>
-            <a class="nav-link [ bg-menu ]" href="{{ route('expenses') }}">Expenses</a>
-            <a class="nav-link [ bg-menu ]" href="{{ route('setting') }}">Setting</a>
+        <div id="menu" class="col-xs">
+            <a class="nav-link [ bg-menu btn-menu ]" href="{{ route('dashboard') }}">Dashboard</a>
+            <a class="nav-link [ bg-menu btn-menu ]" href="{{ route('inventory') }}">Inventory</a>
+            <a class="nav-link [ bg-menu btn-menu ]" href="{{ route('sales') }}">Sales</a>
+            <a class="nav-link [ bg-menu btn-menu ]" href="{{ route('order') }}">Order</a>
+            <a class="nav-link [ bg-menu btn-menu ]" href="{{ route('purchase-order') }}">Purchase Order</a>
+            <a class="nav-link [ bg-menu btn-menu ]" href="{{ route('customer') }}">Customer</a>
+            <a class="nav-link [ bg-menu btn-menu ]" href="{{ route('return') }}">Return</a>
+            <a class="nav-link [ bg-menu btn-menu ]" href="{{ route('supplier') }}">Supplier</a>
+            <a class="nav-link [ bg-menu btn-menu ]" href="{{ route('expenses') }}">Expenses</a>
+            <a class="nav-link [ bg-menu btn-menu ]" href="{{ route('setting') }}">Setting</a>
         </div>
 
         <!-- Navigation Bar -->
@@ -75,6 +77,10 @@
                 </div>
             @endif
 
+            <div class="container h5 text-uppercase [ route-name ]">
+                {{ Request::route()->getName() }}
+            </div>
+
             <!-- User Content -->
             @yield('content')
         </div>
@@ -108,5 +114,7 @@
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
+{{-- <script src="{{ asset('js/script.js') }}"></script>
+ --}}
 </body>
 </html>

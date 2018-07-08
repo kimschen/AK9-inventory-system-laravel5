@@ -1,8 +1,24 @@
-
+/* Menu background color */
 .bg-menu {
 	background-color: #0071BC;
 	color: white;
 	text-decoration: none;
 	padding: 30px;
 	border-bottom: solid 1px lightgray;
+}
+
+.route-name {
+	padding: 15px;
+	background-color: #f2f2f2;
+}
+
+/* Style the menu button */
+.btn-menu {
+    cursor: pointer;
+}
+
+/* Style the active class, and buttons on mouse-over */
+ .btn-menu:hover {
+    background-color: #666;
+    color: white;
 }
