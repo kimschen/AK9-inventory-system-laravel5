@@ -26,6 +26,7 @@ Route::namespace('menu')->middleware('auth')->group(function() {
 	Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 	Route::get('/inventory', 'InventoryController@index')->name('inventory');
 	Route::get('/inventory/add', 'InventoryController@create')->name('add product');
+	Route::post('/inventory', 'InventoryController@store');
 	Route::get('/order', 'OrderController@index')->name('order');
 	Route::get('/sales', 'SalesController@index')->name('sales');
 	Route::get('/expenses', 'ExpensesController@index')->name('expenses');

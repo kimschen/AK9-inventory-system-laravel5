@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Menu;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Products;
 
 class InventoryController extends Controller
 {
@@ -14,7 +15,9 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        return view('menu.inventory');
+        $products = Products::all();
+
+        return view('menu.inventory', compact('products'));
     }
 
     /**
@@ -35,7 +38,17 @@ class InventoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $products = new Products([
+            'name' => $request->get('name'),
+            'unit_cost' => $request->get('unit_cost'),
+            'quantity' => $request->get('quantity'),
+            'channel' => $request->get('channel'),
+            'supplier' => $request->get('supplier'),
+            'image_path' => $request->get('image_path')
+        ]);
+
+        $products->save();
+        return redirect('/inventory');
     }
 
     /**
@@ -46,7 +59,7 @@ class InventoryController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**

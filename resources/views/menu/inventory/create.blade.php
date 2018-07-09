@@ -3,29 +3,31 @@
 @section('content')
 
 <div class="container">
-	<form action="inventory-submit" method="get" accept-charset="utf-8">
+	<form method="post" action="/inventory" accept-charset="utf-8">
+		{{ csrf_field() }}
 		<label for="product-name">Product Name :
-			<input type="text" name="product-name">
+			<input type="text" name="name">
 		</label><br>
 		<label for="unit-cost">Unit Cost :
-			<input type="text" name="unit-cost" value="">
+			<input type="number" name="unit_cost" value="">
 		</label><br>
-		<label for="stock">Stock :
-			<input type="text" name="stock" value="">
+		<label for="quantity">Quantity :
+			<input type="number" name="quantity" value="">
 		</label><br>
 		<label for="channel">Channel :
 			<input type="text" name="channel" value="">
 		</label><br>
-		<label for="supplier">Supplier (Optional) :
+		<label for="supplier">Supplier :
 			<input type="text" name="supplier" value="">
 		</label><br>
-		<img src="" alt="product-image" class="img-thumbnail">
-		<button class="btn btn-primary" onclick="">Upload</button>
+
+		<label for="image_path">Image URL :
+			<input type="url" name="image_path">
+		<div class="container float-right">
+			<button type="submit" class="btn btn-success m-2">Confirm</button>
+			<button type="submit" class="btn btn-danger m-2">Cancel</button>
+		</div>
 	</form>
 </div>
 
-<div class="container">
-	<button class="btn btn-danger float-right m-1" onclick="">Cancel</button>
-	<button class="btn btn-success float-right m-1" onclick="">Confirm</button>
-</div>
 @endsection

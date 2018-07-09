@@ -5,16 +5,21 @@
 <div class="container">
 	<button class="btn btn-primary float-right" onclick="window.location='{{ route('add product') }}';">Add Product</button>
 </div>
-<div class="container">
 
+<div class="container">
+	@foreach($products as $product)
 	<div class="card" style="width: 12rem;">
-	 	<img class="card-img-top" src="../images/product-sample.png" alt="product-image">
+	 	<img class="card-img-top" src="{{ $product->image_path}}" alt="product-image">
 		<ul class="list-group list-group-flush">
-	    	<li class="list-group-item">Product: </li>
-	    	<li class="list-group-item">Unit Cost: </li>
-	    	<li class="list-group-item">Stock: </li>
+	    	<li class="list-group-item">{{ $product->name }}</li>
+	    	<li class="list-group-item">{{ $product->unit_cost }}</li>
+	    	<li class="list-group-item">{{ $product->quantity }} </li>
 		</ul>
+		<div class="card-body">
+			<a href="#" class="card-link">Edit</a>
+			<a href="#" class="card-link">Delete</a>
 	</div>
+	@endforeach
 </div>
 
 <div class="container">
