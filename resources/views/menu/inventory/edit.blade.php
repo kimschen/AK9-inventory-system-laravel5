@@ -29,10 +29,6 @@
 		</div>
 		<div class="container m-4">
 			<button type="submit" class="btn btn-success pl-5 pr-5 m-2"> Update</button>
-			<form method="post" action="{{ action('Menu\InventoryController@destroy', $id) }}">
-				<input name="_method" type="hidden" value="DELETE">
-				<button type="submit" class="btn btn-danger pl-5 pr-5 m-2">Delete</button>
-			</form>
 		</div>
 	</form>
 </div>

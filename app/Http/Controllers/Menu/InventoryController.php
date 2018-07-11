@@ -17,7 +17,7 @@ class InventoryController extends Controller
     {
         $products = Products::all();
 
-        return view('menu.inventory', compact('products'));
+        return view('menu.inventory.index', compact('products'));
     }
 
     /**
@@ -106,7 +106,7 @@ class InventoryController extends Controller
         $products = Products::find($id);
         $products->delete();
 
-        return redirect('/inventory')->with('success', 'Product deleted.');
+        return redirect('inventory')->with('success', 'Product deleted.');
 
     }
 }

@@ -28,12 +28,6 @@ Route::resource('inventory', 'Menu\InventoryController')->names([
 Route::namespace('menu')->middleware('auth')->group(function() {
 
 	Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
-
-	// Route::get('/inventory', 'InventoryController@index')->name('inventory');
-	// Route::post('/inventory', 'InventoryController@store');
-	// Route::get('/inventory/add', 'InventoryController@create')->name('create');
-	// Route::get('/inventory/edit/{id}', 'InventoryController@edit')->name('edit');
-	// Route::post('/inventory/{id}', 'InventoryController@destroy');
 	Route::get('/order', 'OrderController@index')->name('order');
 	Route::get('/sales', 'SalesController@index')->name('sales');
 	Route::get('/expenses', 'ExpensesController@index')->name('expenses');
