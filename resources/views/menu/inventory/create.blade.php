@@ -1,14 +1,13 @@
 @extends('layouts.app')
-
 @section('content')
 
 <div class="container">
 	<form method="post" action="/inventory" accept-charset="utf-8">
 		{{ csrf_field() }}
-		<label for="product-name">Product Name :
-			<input type="text" name="name">
+		<label for="product_name">Product Name :
+			<input type="text" name="product_name">
 		</label><br>
-		<label for="unit-cost">Unit Cost :
+		<label for="unit_cost">Unit Cost :
 			<input type="number" name="unit_cost" value="">
 		</label><br>
 		<label for="quantity">Quantity :
@@ -23,9 +22,8 @@
 
 		<label for="image_path">Image URL :
 			<input type="url" name="image_path">
-		<div class="container float-right">
-			<button type="submit" class="btn btn-success m-2">Confirm</button>
-			<button type="submit" class="btn btn-danger m-2">Cancel</button>
+		<div class="container m-4">
+			<button type="submit" class="btn btn-success pl-5 pr-5">Add</button>
 		</div>
 	</form>
 </div>
