@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Menu;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Products;
 
 class InventoryController extends Controller
 {
@@ -14,7 +15,9 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        return view('menu.inventory');
+        $products = Products::all();
+
+        return view('menu.inventory.index', compact('products'));
     }
 
     /**
@@ -35,7 +38,17 @@ class InventoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $products = new Products([
+            'name' => $request->get('product_name'),
+            'unit_cost' => $request->get('unit_cost'),
+            'quantity' => $request->get('quantity'),
+            'channel' => $request->get('channel'),
+            'supplier' => $request->get('supplier'),
+            'image_path' => $request->get('image_path')
+        ]);
+
+        $products->save();
+        return redirect('/inventory');
     }
 
     /**
@@ -46,7 +59,6 @@ class InventoryController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
@@ -57,7 +69,9 @@ class InventoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $products = Products::find($id);
+
+        return view('menu.inventory.edit', compact('products', 'id'));
     }
 
     /**
@@ -69,7 +83,16 @@ class InventoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $products = Products::findOrFail($id);
+        $products->name = $request->get('product_name');
+        $products->unit_cost = $request->get('unit_cost');
+        $products->quantity = $request->get('quantity');
+        $products->channel = $request->get('channel');
+        $products->supplier = $request->get('supplier');
+        $products->image_path = $request->get('image_path');
+        $products->save();
+
+        return redirect('/inventory');
     }
 
     /**
@@ -80,6 +103,10 @@ class InventoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $products = Products::find($id);
+        $products->delete();
+
+        return redirect('inventory')->with('success', 'Product deleted.');
+
     }
 }

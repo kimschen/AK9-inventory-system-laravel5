@@ -19,13 +19,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
+Route::resource('inventory', 'Menu\InventoryController')->names([
+	'index' => 'inventory',
+    'create' => 'create',
+    'edit'	=> 'edit'
+]);
 // Menu
 Route::namespace('menu')->middleware('auth')->group(function() {
 
 	Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
-	Route::get('/inventory', 'InventoryController@index')->name('inventory');
-	Route::get('/inventory/add', 'InventoryController@create')->name('add product');
 	Route::get('/order', 'OrderController@index')->name('order');
 	Route::get('/sales', 'SalesController@index')->name('sales');
 	Route::get('/expenses', 'ExpensesController@index')->name('expenses');
