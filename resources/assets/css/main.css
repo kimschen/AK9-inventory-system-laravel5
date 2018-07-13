@@ -1,24 +1,36 @@
+.sidebar {
+	position: fixed;
+	height: 100%;
+	z-index: 1000;
+	overflow: auto;
+}
+
+.content {
+	margin-left: 155px;
+}
+
 /* Menu background color */
 .bg-menu {
 	background-color: #0071BC;
-	color: white;
-	text-decoration: none;
-	padding: 30px;
 	border-bottom: solid 1px lightgray;
+	padding: 28px;
+	list-style-type: none;
+	margin-left: -25px;
 }
 
-.route-name {
-	padding: 15px;
-	background-color: #f2f2f2;
+.btn-menu a {
+	text-decoration: none;
+	color: white;
 }
 
-/* Style the menu button */
-.btn-menu {
+/* Style buttons on mouse-over */
+ .btn-menu:hover {
+    background-color: #666;
     cursor: pointer;
 }
 
-/* Style the active class, and buttons on mouse-over */
- .btn-menu:hover {
-    background-color: #666;
-    color: white;
+.route-name {
+	background-color: #f2f2f2;
+	padding: 15px;
 }
+

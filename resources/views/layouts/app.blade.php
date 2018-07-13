@@ -23,25 +23,47 @@
     <!-- User View -->
     @if (Auth::user())
 
-    <div class="row no-gutters">
+    <div class="row">
 
-        <!-- Menu -->
-        <div id="menu" class="col-xs">
-            <a class="nav-link [ bg-menu btn-menu ]" href="{{ route('dashboard') }}">Dashboard</a>
-            <a class="nav-link [ bg-menu btn-menu ]" href="{{ route('inventory') }}">Inventory</a>
-            <a class="nav-link [ bg-menu btn-menu ]" href="{{ route('sales') }}">Sales</a>
-            <a class="nav-link [ bg-menu btn-menu ]" href="{{ route('order') }}">Order</a>
-            <a class="nav-link [ bg-menu btn-menu ]" href="{{ route('purchase-order') }}">Purchase Order</a>
-            <a class="nav-link [ bg-menu btn-menu ]" href="{{ route('customer') }}">Customer</a>
-            <a class="nav-link [ bg-menu btn-menu ]" href="{{ route('return') }}">Return</a>
-            <a class="nav-link [ bg-menu btn-menu ]" href="{{ route('supplier') }}">Supplier</a>
-            <a class="nav-link [ bg-menu btn-menu ]" href="{{ route('expenses') }}">Expenses</a>
-            <a class="nav-link [ bg-menu btn-menu ]" href="{{ route('setting') }}">Setting</a>
+        <!-- Sidebar Menu -->
+        <div class="sidebar">
+            <ul>
+                <li class="bg-menu btn-menu">
+                    <a href="{{ route('dashboard') }}">Dashboard</a>
+                </li>
+                <li class="bg-menu btn-menu">
+                    <a href="{{ route('inventory') }}">Inventory</a>
+                </li>
+                <li class="bg-menu btn-menu">
+                    <a href="{{ route('sales') }}">Sales</a>
+                </li>
+                <li class="bg-menu btn-menu">
+                    <a href="{{ route('order') }}">Order</a>
+                </li>
+                <li class="bg-menu btn-menu">
+                    <a href="{{ route('purchase-order') }}">Purchase Order</a>
+                </li>
+                <li class="bg-menu btn-menu">
+                    <a href="{{ route('return') }}">Return</a>
+                </li>
+                <li class="bg-menu btn-menu">
+                    <a href="{{ route('customer') }}">Customer</a>
+                </li>
+                <li class="bg-menu btn-menu">
+                    <a href="{{ route('supplier') }}">Supplier</a>
+                </li>
+                <li class="bg-menu btn-menu">
+                    <a href="{{ route('expenses') }}">Expenses</a>
+                </li>
+                <li class="bg-menu btn-menu">
+                    <a href="{{ route('setting') }}">Setting</a>
+                </li>
+            </ul>
         </div>
 
         <!-- Navigation Bar -->
         <div class="col-sm">
-            <nav class="navbar navbar-expand-lg bg-dark" style="color: white;">
+            <nav class="navbar navbar-expand-lg bg-dark content" style="color: white;">
                 <h4 class="mx-auto">AK9</h4>
 
                 <!-- Logout -->
@@ -69,7 +91,7 @@
 
             <!-- Flash Message -->
             @if (session('status'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <div class="alert alert-success alert-dismissible fade show content" role="alert">
                     {{ session('status') }}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -77,12 +99,15 @@
                 </div>
             @endif
 
-            <div class="container h5 text-uppercase [ route-name ]">
+            <div class="container h5 text-uppercase route-name content">
                 {{ Request::route()->getName() }}
             </div>
 
             <!-- User Content -->
-            @yield('content')
+            <div class="content">
+                @yield('content')
+            </div>
+
         </div>
 
         <!-- Guest View -->
