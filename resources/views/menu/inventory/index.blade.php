@@ -1,5 +1,4 @@
-<!-- Product index -->
-
+<!-- Product Index -->
 @extends('layouts.app')
 @section('content')
 
@@ -11,10 +10,10 @@
 	@foreach($products as $product)
 	<div class="col-lg-2 mt-4">
 		<div class="card">
-		 	<img class="card-img-top" src="{{ $product->image_path}}" alt="product-image">
+		 	<img class="card-img-top" src="{{ $product->image_path}}" alt="product-image" width="150px" height="150px">
 			<ul class="list-group list-group-flush">
 		    	<li class="list-group-item">{{ $product->name }}</li>
-		    	<li class="list-group-item">{{ $product->unit_cost }}</li>
+		    	<li class="list-group-item">MYR {{ $product->unit_cost }}</li>
 		    	<li class="list-group-item">{{ $product->quantity }}</li>
 			</ul>
 
