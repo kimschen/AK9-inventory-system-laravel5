@@ -106,7 +106,7 @@ class InventoryController extends Controller
         $products = Products::find($id);
         $products->delete();
 
-        return redirect('inventory')->with('success', 'Product deleted.');
+        return redirect('inventory');
 
     }
 }
