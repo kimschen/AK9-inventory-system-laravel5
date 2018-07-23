@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Menu;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\InventoryRequest;
 use Illuminate\Http\Request;
 use App\Models\Products;
 
@@ -36,7 +37,7 @@ class InventoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(InventoryRequest $request)
     {
         $products = new Products([
             'name' => $request->get('product_name'),
@@ -48,7 +49,7 @@ class InventoryController extends Controller
         ]);
 
         $products->save();
-        return redirect('/inventory');
+        return redirect('inventory')->with('success', trans('products.created'));
     }
 
     /**
@@ -81,7 +82,7 @@ class InventoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(InventoryRequest $request, $id)
     {
         $products = Products::findOrFail($id);
         $products->name = $request->get('product_name');
@@ -90,9 +91,10 @@ class InventoryController extends Controller
         $products->channel = $request->get('channel');
         $products->supplier = $request->get('supplier');
         $products->image_path = $request->get('image_path');
+
         $products->save();
 
-        return redirect('/inventory');
+        return redirect('inventory');
     }
 
     /**
@@ -106,7 +108,7 @@ class InventoryController extends Controller
         $products = Products::find($id);
         $products->delete();
 
-        return redirect('inventory');
+        return redirect('inventory')->with('success', trans('products.deleted'));
 
     }
 }

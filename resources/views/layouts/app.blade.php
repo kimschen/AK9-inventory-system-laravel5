@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<!-- MAaster HTML -->
+<!-- Master HTML -->
 <html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
@@ -88,22 +88,33 @@
             </div>
         </nav>
 
+        <!-- Current Page Title -->
+        <div class="container h5 text-uppercase route-name content mb-0">
+            {{ Request::route()->getName() }}
+        </div>
+
         <!-- Status Message -->
-        @if (session('status'))
+        @if (Session::has('success'))
             <div class="alert alert-success alert-dismissible fade show content" role="alert">
-                {{ session('status') }}
+                {{ Session::get('success') }}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
         @endif
 
-        <div class="container h5 text-uppercase route-name content">
-            {{ Request::route()->getName() }}
-        </div>
+        @if (count($errors) > 0)
+            <div class="alert alert-danger content">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{$error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
         <!-- User Content -->
-        <div class="content"> @yield('content') </div>
+        <div class="content mt-3"> @yield('content') </div>
 
     </div>
 

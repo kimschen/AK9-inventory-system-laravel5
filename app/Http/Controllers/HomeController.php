@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        session()->flash('status', trans('auth.success'));
+        session()->flash('success', trans('auth.success'));
         return view('home');
     }
 }
