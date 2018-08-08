@@ -25,7 +25,6 @@
 					<input type="url" name="image_path" value="{{ $products->image_path }}"><br>
 				<div class="m-3">
 					<button type="submit" class="btn btn-success pl-3 pr-3 m-2">Update</button>
-					<button class="btn btn-danger pl-3 pr-3 m-2" onclick="window.location='{{ route('inventory') }}';">Cancel</button>
 				</div>
 			</div>
 		</div>
