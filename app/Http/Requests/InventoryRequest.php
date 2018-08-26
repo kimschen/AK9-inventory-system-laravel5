@@ -24,7 +24,7 @@ class InventoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'product_name' => 'required|unique:products,name',
+            'product_name' => 'required|unique:products,name'.$this->id,
             'unit_cost' => 'required|numeric',
             'quantity' => 'required|numeric',
             'channel' => 'required',
