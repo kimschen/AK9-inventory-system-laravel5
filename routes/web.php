@@ -22,11 +22,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Menu
 Route::namespace('Menu')->middleware('auth')->group(function() {
 
-Route::resource('inventory', 'InventoryController')->names([
-	'index' => 'inventory',
-    'create' => 'create',
-    'edit'	=> 'edit'
-]);
+    Route::resource('inventory', 'InventoryController')->names([
+    	'index' => 'inventory',
+        'create' => 'create',
+        'edit'	=> 'edit'
+    ]);
 
 	Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 	Route::get('/order', 'OrderController@index')->name('order');

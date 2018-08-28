@@ -16,7 +16,9 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        $products = Products::all();
+
+        $products = Products::orderBy('created_at', 'desc');
+        $products = $products->get()->toArray();
 
         return view('menu.inventory.index', compact('products'));
     }
