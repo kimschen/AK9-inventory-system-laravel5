@@ -16,7 +16,9 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        $products = Products::all();
+
+        $products = Products::orderBy('created_at', 'desc');
+        $products = $products->get()->toArray();
 
         return view('menu.inventory.index', compact('products'));
     }
@@ -94,7 +96,7 @@ class InventoryController extends Controller
 
         $products->save();
 
-        return redirect('inventory');
+        return redirect('inventory')->with('success', trans('products.updated'));
     }
 
     /**
