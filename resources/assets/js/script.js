@@ -13,6 +13,6 @@ function previewImage() {
 	if (imageFile) {
 		reader.readAsDataURL(imageFile);
 	} else {
-		image.src = "";
+		image.src = '';
 	}
 }

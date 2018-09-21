@@ -24,24 +24,24 @@
 	display: block;
 }
 
-/* Style buttons on mouse-over */
- .btn-menu:hover {
-    background-color: #666;
-    cursor: pointer;
-}
-
 .route-name {
 	background-color: #f2f2f2;
 	padding: 15px;
 }
 
-.product-button {
+/* Style buttons on mouse-over */
+.btn-menu:hover {
+    background-color: #666;
+    cursor: pointer;
+}
+
+.btn-product {
 	visibility: hidden;
 }
 
-.product-button:hover,
+.btn-product:hover,
 .product-image:hover +
-.product-button {
+.btn-product {
 	visibility: visible;
 	background-color: rgba(0, 0, 0, 0.1);
 }

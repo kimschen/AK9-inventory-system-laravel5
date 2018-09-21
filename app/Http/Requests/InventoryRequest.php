@@ -28,7 +28,7 @@ class InventoryRequest extends FormRequest
             'unit_cost' => 'required|numeric',
             'quantity' => 'required|numeric',
             'channel' => 'required',
-            'image_path' => 'sometimes|active_url|nullable'
+            'image_path' => 'sometimes|nullable'
         ];
     }
 }

@@ -89,7 +89,7 @@
         </nav>
 
         <!-- Current Page Title -->
-        <div class="container h5 text-uppercase route-name content mb-0">
+        <div class="h5 text-uppercase route-name content mb-0">
             {{ Request::route()->getName() }}
         </div>
 

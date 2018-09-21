@@ -14,6 +14,7 @@ return [
     */
 
     'created' => 'Product has been created successfully!',
-    'deleted' => 'Proucy has been deleted successfully!',
+    'deleted' => 'Product has been deleted successfully!',
+    'updated' => 'Product has been updated successfully!'
 
 ];

@@ -96,7 +96,7 @@ class InventoryController extends Controller
 
         $products->save();
 
-        return redirect('inventory');
+        return redirect('inventory')->with('success', trans('products.updated'));
     }
 
     /**

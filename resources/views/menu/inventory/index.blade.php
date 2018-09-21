@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-	<button class="btn btn-primary float-right mt-3" onclick="window.location='{{ route('create') }}';">Add Product</button>
+	<button class="btn btn-primary float-right mt-3" onclick="window.location='{{ route('create') }}';">+</button>
 </div>
 
 <div class="container row">
@@ -13,7 +13,7 @@
 		 	<div class="product-image">
 		 		<img class="card-img-top" src="{{ $product['image_path'] }}" alt="product-image" width="150px" height="150px">
 		 	</div>
-			<div class="container row align-self-center product-button">
+			<div class="container row align-self-center btn-product">
 				<button type="submit"
 						class="btn pl-2 pr-2 m-1"
 						onclick="window.location='{{ action('Menu\InventoryController@edit', $product['id']) }}';">Edit
