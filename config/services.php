@@ -14,6 +14,13 @@ return [
     |
     */
 
+    'firebase' => [
+        'api_key' => 'AIzaSyDlcAH9bHastPHhnKXfsF7NuXlz_o255BM',
+        'auth_domain' => 'ak9-ims.firebaseapp.com',
+        'database_url' => 'https://ak9-ims.firebaseio.com',
+        'storage_bucket' => 'ak9-ims.appspot.com',
+    ],
+
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),
