@@ -17,8 +17,9 @@ return [
     'firebase' => [
         'api_key' => env('FIREBASE_APP_KEY'),
         'auth_domain' => env('FIREBASE_AUTH_DOMAIN'),
-        'database_url' => env('FIREBASE_DATABASE'),
+        'database_url' => env('FIREBASE_DATABASE_URI'),
         'storage_bucket' => env('FIREBASE_STORAGE'),
+        'service_account' => env('FIREBASE_SERVICE_ACCOUNT'),
     ],
 
     'mailgun' => [

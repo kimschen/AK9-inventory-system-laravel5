@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Menu;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\InventoryRequest;
-use Illuminate\Http\Request;
 use App\Models\Products;
+use Illuminate\Http\Request;
 
 class InventoryController extends Controller
 {
