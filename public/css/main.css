@@ -1,0 +1,53 @@
+.sidebar {
+	position: fixed;
+	height: 100%;
+	z-index: 1000;
+	overflow: hidden;
+}
+
+.sidebar:hover {
+  overflow-y: scroll;
+}
+
+
+.content {
+	margin-left: 155px;
+	padding-left: 1.8em;
+}
+
+/* Menu background color */
+.bg-menu {
+	background-color: #0071BC;
+	border-bottom: solid 1px lightgray;
+	list-style-type: none;
+	margin-left: -25px;
+}
+
+.btn-menu a {
+	text-decoration: none;
+	color: white;
+	padding: 28px;
+	display: block;
+}
+
+.route-name {
+	background-color: #f2f2f2;
+	padding: 15px;
+}
+
+/* Style buttons on mouse-over */
+.btn-menu:hover {
+    background-color: #666;
+    cursor: pointer;
+}
+
+.btn-product {
+	visibility: hidden;
+}
+
+.btn-product:hover,
+.product-image:hover +
+.btn-product {
+	visibility: visible;
+	background-color: rgba(0, 0, 0, 0.1);
+}
